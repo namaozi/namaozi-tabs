@@ -1,0 +1,10 @@
+<template>
+  <div>
+    <div>
+      score
+    </div>
+    <div>
+      tab
+    </div>
+  </div>
+</template>
