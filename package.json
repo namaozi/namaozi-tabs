@@ -11,9 +11,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/bulma": "^1.2.0",
+    "@nuxtjs/font-awesome": "^1.0.3",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0",
-    "@nuxtjs/bulma": "^1.2.0"
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
