@@ -1,7 +1,5 @@
 <template>
-  <div class="content is-small">
-    {{song.score}}
-  </div>
+  <textarea class="textarea is-small">{{song.score}}</textarea>
 </template>
 
 <script>

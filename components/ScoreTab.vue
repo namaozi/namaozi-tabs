@@ -1,8 +1,8 @@
 <template>
   <div>
     <Score :song="this.song" />
-    <HorizontalTab />
-    <VerticalTab />
+    <HorizontalTab :score-array="scoreArray" />
+    <VerticalTab :score-array="scoreArray" />
   </div>
 </template>
 
@@ -26,7 +26,44 @@
     },
     data: function () {
       return {
-        hoge: 'hoge',
+        scoreArray: this.parse(this.song.score),
+      }
+    },
+    methods: {
+      /**
+       * スコアをパースして表示させやすくオブジェクトにする
+       * @param rawScore
+       * @returns {{hoge: string}}
+       */
+      parse(rawScore) {
+        const rawBars = rawScore.split('\n').map(raw => raw.slice(1, -1).split('|')).flat();
+        const bars = rawBars.map((rawBar, index) => {
+          let bar = {index};
+          const notes = rawBar.split(',')
+            .map(fragment => {
+              // 数字から始まる時,fragmentは単音
+              if (fragment.match(/^[1-6]/) !== null) {
+                const key = fragment[0];
+                const value = fragment.slice(1);
+                return {[key]: value};
+              }
+              // [E,X,X,G,B,E] みたいなfragmentは6弦から書いた和音
+              // {6: "E", 3: "G", 2: "B", 1: "E"} の形に変換する
+              if (fragment[0] === '[' /*&& note.substr(note.length) === ']'*/) {
+                const fragmentNotes = fragment.slice(1, -1).split(';');
+                let chordComponents = {};
+                fragmentNotes.forEach((note, index) => {
+                  if (note !== 'x') {
+                    return chordComponents[6 - index] = note;
+                  }
+                });
+                return chordComponents;
+              }
+            });
+          bar['notes'] = notes;
+          return bar;
+        });
+        return bars;
       }
     }
   }
