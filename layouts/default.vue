@@ -1,5 +1,5 @@
 <template>
-  <div class="hero is-light is-large">
+  <div class="hero is-light is-fullheight">
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
