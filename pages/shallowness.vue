@@ -18,37 +18,30 @@
           pitch: 'relative',
           tuning: 'EADGBE',
           capo: 2,
-          score: `
-===intro===
+          score: `|[E;x;x;A;x;x]|6F,5C,4D,3G,5C,4D,5C,4D,3G,5C|6F,5C,4D,3G,5C,4D,5C,4D,3G,5C|
+|6E,5C,4D,3G,5C,4D,5C,4D,3G,5C|6E,5C,4D,3G,5C,4D,5C,4D,3G,5C|
+|6F,5C,4D,3G,5C,2B,5C,4D,3G,5C|6F,5C,4D,3G,5C,2B,5C,4D,3G,5C|
+|6E,5C,4D,3G,5C,2B,5C,4D,3G,5C|6E,5C,4D,3G,5C,2B,5C,4D,3G,3A|
+|[F;x;x;x;B;x],4D,3G,2C,5X|3A,5X,3A,3G,3A|[F;x;x;x;B;x],4D,3G,2C,5X|2D,  ,2C,2B,3G|
+|[E;x;x;A;x;x],3G,3G,3G,5C|4D,5C,4D,3G,5C|6E,5C,4D,3G,5C|4D,5C,4D,3G,3A|
+|[F;x;x;x;B;x],4D,3G,2C,5X|3A,5X,3A,3G,3A|[F;x;x;x;B;x],4D,3G,2C,5X|2D,  ,2C,2D,1E|
+|[E;x;x;G;B;F],1E,1E,  ,5C|4D,5C,4D,3G,5C|[x;A;E;G;D;x],  ,2C,2C,6G|[x;x;D;G;B;x],  ,3G,  ,4D|
 |6F,5C,4D,3G,5C,4D,5C,4D,3G,5C|6F,5C,4D,3G,5C,4D,5C,4D,3G,5C|
 |6E,5C,4D,3G,5C,4D,5C,4D,3G,5C|6E,5C,4D,3G,5C,4D,5C,4D,3G,5C|
 |6F,5C,4D,3G,5C,2B,5C,4D,3G,5C|6F,5C,4D,3G,5C,2B,5C,4D,3G,5C|
 |6E,5C,4D,3G,5C,2B,5C,4D,3G,5C|6E,5C,4D,3G,5C,2B,5C,4D,3G,3A|
-===verse===
-|[FxxxBx],4D,3G,2C,5X|3A,5X,3A,3G,3A|[FxxxBx],4D,3G,2C,5X|2D,  ,2C,2B,3G|
-|[ExxAxx],3G,3G,3G,5C|4D,5C,4D,3G,5C|6E,5C,4D,3G,5C|4D,5C,4D,3G,3A|
-|[FxxxBx],4D,3G,2C,5X|3A,5X,3A,3G,3A|[FxxxBx],4D,3G,2C,5X|2D,  ,2C,2D,1E|
-|[ExxGBF],1E,1E,  ,5C|4D,5C,4D,3G,5C|[xAEGDx],  ,2C,2C,6G|[xxDGBx],  ,3G,  ,4D|
-===intro===
-|6F,5C,4D,3G,5C,4D,5C,4D,3G,5C|6F,5C,4D,3G,5C,4D,5C,4D,3G,5C|
-|6E,5C,4D,3G,5C,4D,5C,4D,3G,5C|6E,5C,4D,3G,5C,4D,5C,4D,3G,5C|
-|6F,5C,4D,3G,5C,2B,5C,4D,3G,5C|6F,5C,4D,3G,5C,2B,5C,4D,3G,5C|
-|6E,5C,4D,3G,5C,2B,5C,4D,3G,5C|6E,5C,4D,3G,5C,2B,5C,4D,3G,3A|
-===verse===
-|[FxxxBx],4D,3G,2C,5X|3A,5X,3A,3G,3A|[FxxxBx],4D,3G,2C,5X|2D,  ,2C,2B,3G|
-|[ExxAxx],3G,3G,3G,5C|4D,5C,4D,3G,5C|6E,5C,4D,3G,5C|4D,5C,4D,3G,3A|
-|[FxxxBx],4D,3G,2C,5X|3A,5X,3A,3G,3A|[FxxxBx],4D,3G,2C,5X|2D,  ,2C,2D,1E|
-|[ExxGBF],1E,1E,  ,5C|4D,5C,4D,3G,5C|[xAEGDx],  ,2C,2C,6G|3G,3A,2B,[ExDGCx],2D|
-===chorus===
-|[FxxGCE],  ,[xxxACx],[xxxACx],6F|3A,4E,[xxxACx],4E,3A|
-|[FxxGCE],  ,[xxxACx],[xxxACx],6F|3A,2C,1E,1G,1F|
-|[ExxGBE],  ,[xxDGBx],[xxDGBx],6E|3G,4D,[xxxGBx],4D,3G|
-|[xAEGDx],  ,2C,2C,6G|3G,3A,2B,[ExDGCx],2D|
-|[FxxGCE],  ,[xxxACx],[xxxACx],6F|3A,4E,[xxxACx],4E,3A|
-|[FxxGCE],  ,[xxxACx],[xxxACx],6F|3A,2C,1E,1G,1F|
-|[ExxGBG],  ,2D,2D,6E|2B,3G,2D,  ,1G|
-|[xAxGCF],  ,1E,1E,6G|[xxDGBx],  ,3G,  ,4D|
-===intro===
+|[F;x;x;x;B;x],4D,3G,2C,5X|3A,5X,3A,3G,3A|[F;x;x;x;B;x],4D,3G,2C,5X|2D,  ,2C,2B,3G|
+|[E;x;x;A;x;x],3G,3G,3G,5C|4D,5C,4D,3G,5C|6E,5C,4D,3G,5C|4D,5C,4D,3G,3A|
+|[F;x;x;x;B;x],4D,3G,2C,5X|3A,5X,3A,3G,3A|[F;x;x;x;B;x],4D,3G,2C,5X|2D,  ,2C,2D,1E|
+|[E;x;x;G;B;F],1E,1E,  ,5C|4D,5C,4D,3G,5C|[x;A;E;G;D;x],  ,2C,2C,6G|3G,3A,2B,[E;x;D;G;C;x],2D|
+|[F;x;x;G;C;E],  ,[x;x;x;A;C;x],[x;x;x;A;C;x],6F|3A,4E,[x;x;x;A;C;x],4E,3A|
+|[F;x;x;G;C;E],  ,[x;x;x;A;C;x],[x;x;x;A;C;x],6F|3A,2C,1E,1G,1F|
+|[E;x;x;G;B;E],  ,[x;x;D;G;B;x],[x;x;D;G;B;x],6E|3G,4D,[x;x;x;G;B;x],4D,3G|
+|[x;A;E;G;D;x],  ,2C,2C,6G|3G,3A,2B,[E,x,D,G,C,x],2D|
+|[F;x;x;G;C;E],  ,[x;x;x;A;C;x],[x;x;x;A;C;x],6F|3A,4E,[x;x;x;A;C;x],4E,3A|
+|[F;x;x;G;C;E],  ,[x;x;x;A;C;x],[x;x;x;A;C;x],6F|3A,2C,1E,1G,1F|
+|[E;x;x;G;B;G],  ,2D,2D,6E|2B,3G,2D,  ,1G|
+|[x;A;x;G;C;F],  ,1E,1E,6G|[x;x;D;G;B;x],  ,3G,  ,4D|
 |6F,5C,4D,3G,5C,4D,5C,4D,3G,5C|6F,5C,4D,3G,5C,4D,5C,4D,3G,5C|
 |6E,5C,4D,3G,5C,4D,5C,4D,3G,5C|6E,5C,4D,3G,5C,4D,5C,4D,3G,5C|
 |6F,5C,4D,3G,5C,2B,5C,4D,3G,5C|6F,5C,4D,3G,5C,2B,5C,4D,3G,5C|
