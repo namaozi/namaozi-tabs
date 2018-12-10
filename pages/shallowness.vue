@@ -18,7 +18,8 @@
           pitch: 'relative',
           tuning: 'EADGBE',
           capo: 2,
-          score: `|[E;x;x;A;x;x]|6F,5C,4D,3G,5C|4D,5C,4D,3G,5C|6F,5C,4D,3G,5C|4D,5C,4D,3G,5C|
+          beats: 5,
+          score: `|6F,5C,4D,3G,5C|4D,5C,4D,3G,5C|6F,5C,4D,3G,5C|4D,5C,4D,3G,5C|
 |6E,5C,4D,3G,5C|4D,5C,4D,3G,5C|6E,5C,4D,3G,5C|4D,5C,4D,3G,5C|
 |6F,5C,4D,3G,5C|2B,5C,4D,3G,5C|6F,5C,4D,3G,5C|2B,5C,4D,3G,5C|
 |6E,5C,4D,3G,5C|2B,5C,4D,3G,5C|6E,5C,4D,3G,5C|2B,5C,4D,3G,3A|
