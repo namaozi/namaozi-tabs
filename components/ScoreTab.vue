@@ -1,7 +1,8 @@
 <template>
   <div>
     <Score :song="this.song" />
-    <HorizontalTab :score-array="scoreArray" />
+    <HorizontalTab :score-array="scoreArray" :beats="this.song['beats']" :capo="this.song['capo']"
+                   :pitch="this.song['relative']" :tuning="this.song['tuning']" />
     <VerticalTab :score-array="scoreArray" />
   </div>
 </template>
@@ -38,7 +39,7 @@
       parse(rawScore) {
         const rawBars = rawScore.split('\n').map(raw => raw.slice(1, -1).split('|')).flat();
         const bars = rawBars.map((rawBar, index) => {
-          let bar = {index};
+          let bar = {index: index + 1};
           const notes = rawBar.split(',')
             .map(fragment => {
               // 数字から始まる時,fragmentは単音
@@ -52,13 +53,16 @@
               if (fragment[0] === '[' /*&& note.substr(note.length) === ']'*/) {
                 const fragmentNotes = fragment.slice(1, -1).split(';');
                 let chordComponents = {};
-                fragmentNotes.forEach((note, index) => {
+                fragmentNotes.forEach((note, i) => {
                   if (note !== 'x') {
-                    return chordComponents[6 - index] = note;
+                    return chordComponents[6 - i] = note;
                   }
                 });
                 return chordComponents;
               }
+              // 空白は休符
+              // {} 空オブジェクトにする
+              return {};
             });
           bar['notes'] = notes;
           return bar;
