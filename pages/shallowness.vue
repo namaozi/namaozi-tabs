@@ -15,7 +15,7 @@
       return {
         song: {
           title: 'shallowness',
-          pitch: 'relative',
+          position: 'relative',
           tuning: 'EADGBE',
           capo: 2,
           beats: 5,

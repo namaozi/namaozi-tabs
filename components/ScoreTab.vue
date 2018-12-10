@@ -2,7 +2,7 @@
   <div>
     <Score :song="this.song" />
     <HorizontalTab :score-array="scoreArray" :beats="this.song['beats']" :capo="this.song['capo']"
-                   :pitch="this.song['relative']" :tuning="this.song['tuning']" />
+                   :position="this.song['position']" :tuning="this.song['tuning']" />
     <VerticalTab :score-array="scoreArray" />
   </div>
 </template>
