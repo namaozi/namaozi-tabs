@@ -11,12 +11,18 @@
             :x="consts['JUDGE_LINE_OFFSET']" :y="consts['STRING_OFFSET']"></rect>
     </svg>
 
+    {{/* カポ, チューニング */}}
+    <svg class="horizontal-tab-song-info" :viewBox="consts['VIEWBOX']">
+      <text x="10" y="10">tuning: {{tuning}}, capo: {{capo}}</text>
+    </svg>
+
     {{/* ここがメインの譜面 */}}
     <div class="horizontal-tab-score">
       <div v-for="bar in scoreArray" :key="bar.index">
 
-        {{/* 小節線 */}}
+        {{/* 小節線 + 番号 */}}
         <svg class="horizontal-tab-bar-line" :viewBox="consts['VIEWBOX']">
+          <text :x="bar.index * consts['BAR_WIDTH'] - 5" y="55">{{bar.index}}</text>
           <line :x1="bar.index * consts['BAR_WIDTH']" y1=75 :x2="bar.index * consts['BAR_WIDTH']" y2=225></line>
         </svg>
 
@@ -84,7 +90,7 @@
   }
 
   #horizontal-tab {
-    background-color: mintcream;
+    background-color: aliceblue;
     height: 300px;
     position: relative;
   }
@@ -99,11 +105,23 @@
     fill: rgba(207, 11, 117, 0.5);
   }
 
-  .horizontal-tab-bar-line {
+  .horizontal-tab-bar-line line {
     stroke: royalblue;
     stroke-dasharray: 5, 5;
     stroke-width: 1;
     fill: none;
+  }
+
+  .horizontal-tab-bar-line text {
+    stroke: none;
+    fill: royalblue;
+    font-size: 1.2rem;
+  }
+
+  .horizontal-tab-song-info {
+    stroke: none;
+    fill: darkblue;
+    font-size: 1.2rem;
   }
 
   note {
