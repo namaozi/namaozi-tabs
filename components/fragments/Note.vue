@@ -1,10 +1,10 @@
 <template>
   <svg class="note" :viewBox="passedViewBox">
-    <circle :cx="x"
+    <circle :class="'fret-' + fret" :cx="x"
             :cy="y"
             :r="r">
     </circle>
-    <text :x="x - 7" :y="y + 7">{{fret}}</text>
+    <text class="tab-digit" :x="x - 7" :y="y + 7">{{fret}}</text>
   </svg>
 </template>
 
@@ -105,6 +105,76 @@
     100% {
       margin-left: -10000px;
     }
+  }
+
+  /* TAB colors */
+  .fret-0{
+    fill: #cacfd1;
+    stroke: #696969;
+  }
+  .fret-1{
+    fill: #cce8ff;
+    stroke: #7ca9cf;
+  }
+  .fret-2{
+    fill: #7ce6fa;
+    stroke: #2991a3;
+  }
+  .fret-3{
+    fill: #a1f7cc;
+    stroke: #1b995e;
+  }
+  .fret-4{
+    fill: #97f48d;
+    stroke: #1f9314;
+  }
+  .fret-5{
+    fill: #e1f1bb;
+    stroke: #62860f;
+  }
+  .fret-6{
+    fill: #f0eaa1;
+    stroke: #8e8d0e;
+  }
+  .fret-7{
+    fill: #efd0b2;
+    stroke: #946a0e;
+  }
+  .fret-8{
+    fill: #eeb6ab;
+    stroke: #94400d;
+  }
+  .fret-9{
+    fill: #ecbebb;
+    stroke: #99150b;
+  }
+  .fret-10{
+    fill: #eab7e4;
+    stroke: #940955;
+  }
+  .fret-11{
+    fill: #e8b9e7;
+    stroke: #8b0378;
+  }
+  .fret-12{
+    fill: #d7afe7;
+    stroke: #5c036c;
+  }
+  .fret-13{
+    fill: #847a95;
+    stroke: #2d0353;
+  }
+  .fret-14{
+    fill: #acb0e5;
+    stroke: #1a036e;
+  }
+  .fret-15{
+    fill: #5e5f83;
+    stroke: #0b012e;
+  }
+  .tab-digit{
+    fill: midnightblue;
+    font-size: 1.5rem;
   }
 
 </style>
