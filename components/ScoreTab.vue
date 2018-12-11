@@ -1,9 +1,9 @@
 <template>
   <div class="score-tab-container">
-    <h1 class="has-text-centered">{{this.song['title']}}</h1>
-    <Score :song="this.song" />
-    <HorizontalTab :score-array="scoreArray" :beats="this.song['beats']" :capo="this.song['capo']"
-                   :position="this.song['position']" :tuning="this.song['tuning']" />
+    <h1 class="has-text-centered">{{song['title']}}</h1>
+    <textarea class="textarea is-small" v-model="song['score']"></textarea>
+    <HorizontalTab :score-array="scoreArray" :beats="song['beats']" :capo="song['capo']"
+                   :position="song['position']" :tuning="song['tuning']" />
     <!--<VerticalTab :score-array="scoreArray" />-->
   </div>
 </template>
@@ -26,9 +26,9 @@
         default: 'song', // 降ってくるsong
       },
     },
-    data: function () {
-      return {
-        scoreArray: this.parse(this.song.score),
+    computed: {
+      scoreArray: function () {
+        return this.parse(this.song.score);
       }
     },
     methods: {
