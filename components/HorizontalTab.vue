@@ -2,7 +2,7 @@
   <div id="horizontal-tab">
     <svg class="horizontal-tab-string-lines" v-for="string in [1,2,3,4,5,6]" :viewBox="consts['VIEWBOX']"
          :height="consts['HEIGHT']" :width="consts['WIDTH']">
-      <line x1="0" :x2="consts['WIDTH']" :y1="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"
+      <line x1="0" :x2="consts['BAR_WIDTH'] * scoreArray.length + 1" :y1="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"
             :y2="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"></line>
     </svg>
 
@@ -124,7 +124,7 @@
     font-size: 1.2rem;
   }
 
-  note {
+  .horizontal-tab-scoreeee {
     animation: move-notes 60s linear 0s infinite normal;
   }
 

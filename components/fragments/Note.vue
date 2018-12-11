@@ -94,18 +94,6 @@
     fill: #CCC;
     stroke: #333;
   }
-  note {
-    animation: move-notes 60s linear 0s infinite normal;
-  }
-
-  @keyframes move-notes {
-    0% {
-      margin-left: 0;
-    }
-    100% {
-      margin-left: -10000px;
-    }
-  }
 
   /* TAB colors */
   .fret-0{
