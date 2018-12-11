@@ -3,7 +3,7 @@
     <circle :cx="x"
             :cy="y"
             :r="r"></circle>
-    <text :x="x - 7" :y="y + 7">{{realPitch}}</text>
+    <text :x="x - 7" :y="y + 7">{{fret}}</text>
   </g>
 </template>
 
@@ -51,12 +51,35 @@
       }
     },
     computed: {
-      // いまのところ11フレットまでしか対応できない
-      // 実音 = pitch + capo
+      /**
+       * 何フレットを押さえるかを返す
+       * なおrelative記法で書くのでcapoを考慮する意味はない
+       * ex.) 5弦解放:A, pitch:B => 2
+       */
+      fret: function () {
+        const open = this.tuning[6 - this.nth];
+        const distance = this.pitchToNumber[this.pitch] - this.pitchToNumber[open];
+        return distance < 0 ? distance + 12 : distance;
+      },
+      /**
+       * pitchを実音に変換する
+       * いまのところ11フレットまでしか対応できない
+       * 実音 = pitch + capo
+       * @returns String
+       */
       realPitch: function () {
         const num = (this.capo + this.pitchToNumber[this.pitch]) % 12;
         return this.numberToPitch[num];
-      }
+      },
+
+      /**
+       * capoを加味した開放弦の実音を得る
+       * @returns String
+       */
+      openPitch: function () {
+        const num = (this.capo + this.pitchToNumber[this.tuning[6 - this.nth]]) % 12;
+        return this.numberToPitch[num];
+      },
     },
     methods: {
       //
