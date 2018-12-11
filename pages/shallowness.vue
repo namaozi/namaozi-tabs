@@ -1,5 +1,5 @@
 <template>
-  <div class="container content is-large">
+  <div class="content is-large">
     <ScoreTab :song="this.song" />
   </div>
 </template>

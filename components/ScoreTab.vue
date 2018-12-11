@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="score-tab-container">
+    <h1 class="has-text-centered">{{this.song['title']}}</h1>
     <Score :song="this.song" />
     <HorizontalTab :score-array="scoreArray" :beats="this.song['beats']" :capo="this.song['capo']"
                    :position="this.song['position']" :tuning="this.song['tuning']" />
-    <VerticalTab :score-array="scoreArray" />
+    <!--<VerticalTab :score-array="scoreArray" />-->
   </div>
 </template>
 
@@ -72,3 +73,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .score-tab-container > * {
+    margin: 10px 0;
+  }
+</style>

@@ -1,15 +1,17 @@
 <template>
-  <g>
+  <svg class="note" :viewBox="passedViewBox">
     <circle :cx="x"
             :cy="y"
-            :r="r"></circle>
+            :r="r">
+    </circle>
     <text :x="x - 7" :y="y + 7">{{fret}}</text>
-  </g>
+  </svg>
 </template>
 
 <script>
   export default {
     props: {
+      passedViewBox: String,
       x: Number,
       y: Number,
       r: Number,
@@ -92,4 +94,17 @@
     fill: #CCC;
     stroke: #333;
   }
+  note {
+    animation: move-notes 60s linear 0s infinite normal;
+  }
+
+  @keyframes move-notes {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -10000px;
+    }
+  }
+
 </style>

@@ -1,21 +1,10 @@
 <template>
-  <div class="hero is-light is-fullheight">
-    <div class="hero-head">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-              Hoge
-            </a>
-            <a class="navbar-item">
-              Fuga
-            </a>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <div class="hero-body">
-      <nuxt/>
+  <div>
+    <nav class="navbar">
+
+    </nav>
+    <div class="container">
+      <nuxt />
     </div>
   </div>
 </template>
