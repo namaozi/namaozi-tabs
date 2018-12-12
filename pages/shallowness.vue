@@ -38,7 +38,7 @@
 |[F;x;x;G;C;E],  ,[x;x;x;A;C;x],[x;x;x;A;C;x],6F|3A,4E,[x;x;x;A;C;x],4E,3A|
 |[F;x;x;G;C;E],  ,[x;x;x;A;C;x],[x;x;x;A;C;x],6F|3A,2C,1E,1G,1F|
 |[E;x;x;G;B;E],  ,[x;x;D;G;B;x],[x;x;D;G;B;x],6E|3G,4D,[x;x;x;G;B;x],4D,3G|
-|[x;A;E;G;D;x],  ,2C,2C,6G|3G,3A,2B,[E,x,D,G,C,x],2D|
+|[x;A;E;G;D;x],  ,2C,2C,6G|3G,3A,2B,[E;x;D;G;C;x],2D|
 |[F;x;x;G;C;E],  ,[x;x;x;A;C;x],[x;x;x;A;C;x],6F|3A,4E,[x;x;x;A;C;x],4E,3A|
 |[F;x;x;G;C;E],  ,[x;x;x;A;C;x],[x;x;x;A;C;x],6F|3A,2C,1E,1G,1F|
 |[E;x;x;G;B;G],  ,2D,2D,6E|2B,3G,2D,  ,1G|
