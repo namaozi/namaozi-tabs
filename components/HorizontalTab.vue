@@ -28,6 +28,20 @@
       </div>
       <div class="field is-horizontal">
         <div class="field-label is-normal">
+          <label class="label">zoom:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input-range is-primary" type="range" min="1"
+                     :max="this.scoreArray.length"
+                     v-model.number="currentNoteWidth">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
           <label class="label">scroll:</label>
         </div>
         <div class="field-body">
@@ -46,7 +60,7 @@
       {{/* 弦 */}}
       <svg class="horizontal-tab-string" v-for="string in [1,2,3,4,5,6]" :viewBox="consts['VIEWBOX']"
            :height="consts['HEIGHT']" :width="consts['WIDTH']">
-        <line x1="0" :x2="consts['BAR_WIDTH'] * scoreArray.length + 1"
+        <line x1="0" :x2="currentBarWidth * scoreArray.length + 1"
               :y1="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"
               :y2="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"></line>
       </svg>
@@ -62,15 +76,15 @@
 
             {{/* 小節線も可変 + 番号 */}}
             <svg v-if="(bar.index * beats + index)" class="horizontal-tab-bar-line" :viewBox="viewBox">
-              <text :x="bar.index * consts['BAR_WIDTH'] - 5" y="55">{{bar.index}}</text>
-              <line :x1="bar.index * consts['BAR_WIDTH']" y1=75 :x2="bar.index * consts['BAR_WIDTH']" y2=225></line>
+              <text :x="bar.index * currentBarWidth - 5" y="55">{{bar.index}}</text>
+              <line :x1="bar.index * currentBarWidth" y1=75 :x2="bar.index * currentBarWidth" y2=225></line>
             </svg>
 
 
               {{/* ex.) note: "B", string: 2 */}}
               <div class="horizontal-tab-note" v-for="(note, string) in notes">
                 <Note :passed-view-box="viewBox"
-                      :x="bar.index * consts['BAR_WIDTH'] + (index + 0.5) * consts['NOTE_WIDTH']"
+                      :x="bar.index * currentBarWidth + (index + 0.5) * currentNoteWidth"
                       :y="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"
                       :r="consts['NOTE_RADIUS']"
                       :pitch="note"
@@ -109,11 +123,11 @@
           WIDTH: 1200, // 画面幅に合わせたい
           STRING_INTERVAL: 30,
           STRING_OFFSET: 45,
-          NOTE_WIDTH: 42,
           BAR_WIDTH: this.beats * 42,
           NOTE_RADIUS: 15,
         },
         currentBarIndex: 1,
+        currentNoteWidth: 42,
       }
     },
     computed: {
@@ -122,7 +136,11 @@
        * @returns {string}
        */
       viewBox: function () {
-        return `${this.currentBarIndex * this.consts['BAR_WIDTH'] - 20} 0 1200 300`;
+        return `${this.currentBarIndex * this.currentNoteWidth * this.beats - 20} 0 1200 300`;
+      },
+
+      currentBarWidth: function () {
+        return this.currentNoteWidth * this.beats;
       }
     },
   }
