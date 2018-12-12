@@ -21,31 +21,26 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="number" v-model="capo">
+              <input class="input" type="number" v-model.number="capo">
             </div>
           </div>
         </div>
       </div>
       <div class="field is-horizontal">
         <div class="field-label is-normal">
-          <label class="label">beats:</label>
+          <label class="label">scroll:</label>
         </div>
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="number" v-model="beats">
+              <input class="input-range is-primary" type="range" min="1"
+                     :max="this.scoreArray.length"
+                     v-model.number="currentBarIndex">
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    {{/* 譜面スクロール用slider */}}
-    <vue-slider id="horizontal-slider" ref="slider"
-                v-model="currentBarIndex"
-                :min="1"
-                :max="this.scoreArray.length"
-                :style="'{display: inline-block}'" />
 
     <div id="horizontal-tab">
       {{/* 弦 */}}
@@ -60,16 +55,17 @@
       <div class="horizontal-tab-score">
         <div v-for="bar in scoreArray" :key="bar.index">
 
-          {{/* 小節線 + 番号 */}}
-          <svg class="horizontal-tab-bar-line" :viewBox="viewBox">
-            <text :x="bar.index * consts['BAR_WIDTH'] - 5" y="55">{{bar.index}}</text>
-            <line :x1="bar.index * consts['BAR_WIDTH']" y1=75 :x2="bar.index * consts['BAR_WIDTH']" y2=225></line>
-          </svg>
-
           {{/* 1小節中の音符配列が bar['notes'] */}}
           {{/* notes には { 2: "B", 6: "F" } の形で入る */}}
           <div class="horizontal-tab-bar-notes">
             <div class="horizontal-tab-notes" v-for="(notes, index) in bar['notes']" :key="index">
+
+            {{/* 小節線も可変 + 番号 */}}
+            <svg v-if="(bar.index * beats + index)" class="horizontal-tab-bar-line" :viewBox="viewBox">
+              <text :x="bar.index * consts['BAR_WIDTH'] - 5" y="55">{{bar.index}}</text>
+              <line :x1="bar.index * consts['BAR_WIDTH']" y1=75 :x2="bar.index * consts['BAR_WIDTH']" y2=225></line>
+            </svg>
+
 
               {{/* ex.) note: "B", string: 2 */}}
               <div class="horizontal-tab-note" v-for="(note, string) in notes">
@@ -92,12 +88,10 @@
 </template>
 
 <script>
-  import vueSlider from 'vue-slider-component'
   import Note from './fragments/Note';
 
   export default {
     components: {
-      vueSlider,
       Note,
     },
     props: {
@@ -115,8 +109,8 @@
           WIDTH: 1200, // 画面幅に合わせたい
           STRING_INTERVAL: 30,
           STRING_OFFSET: 45,
-          BAR_WIDTH: 210,
-          NOTE_WIDTH: 210 / this.beats,
+          NOTE_WIDTH: 42,
+          BAR_WIDTH: this.beats * 42,
           NOTE_RADIUS: 15,
         },
         currentBarIndex: 1,
@@ -144,6 +138,19 @@
     background-color: aliceblue;
     height: 300px;
     position: relative;
+  }
+
+  /* bulma標準でサポートしていない */
+  .input-range[type="range"] {
+    background-color: #eaeaea;
+    height: 2px;
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  /* DIRTY HACK :-1: */
+  .control {
+    margin-top: 10px;
   }
 
   .horizontal-tab-string {

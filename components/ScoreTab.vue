@@ -56,9 +56,13 @@
           const notes = rawBar.split(',')
             .map(fragment => {
               // 数字から始まる時,fragmentは単音
+              // しかし 5X のような場合はミュート
               if (fragment.match(/^[1-6]/) !== null) {
                 const key = fragment[0];
                 const value = fragment.slice(1);
+                if (value === "X") {
+                  return;
+                }
                 return {[key]: value};
               }
               // [E,X,X,G,B,E] みたいなfragmentは6弦から書いた和音
