@@ -7,6 +7,9 @@
       <li>
         <nuxt-link to="/shallowness">shallowness</nuxt-link>
       </li>
+      <li>
+        <nuxt-link to="/playground">playground</nuxt-link>
+      </li>
     </ul>
   </div>
 </template>
