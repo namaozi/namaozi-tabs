@@ -60,7 +60,7 @@
       {{/* 弦 */}}
       <svg class="horizontal-tab-string" v-for="string in [1,2,3,4,5,6]" :viewBox="consts['VIEWBOX']"
            :height="consts['HEIGHT']" :width="consts['WIDTH']">
-        <line x1="0" :x2="currentBarWidth * scoreArray.length + 1"
+        <line x1="0" :x2="barWidth * scoreArray.length + 1"
               :y1="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"
               :y2="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"></line>
       </svg>
@@ -76,17 +76,17 @@
 
             {{/* 小節線も可変 + 番号 */}}
             <svg v-if="(bar.index * beats + index)" class="horizontal-tab-bar-line" :viewBox="viewBox">
-              <text :x="bar.index * currentBarWidth - 5" y="55">{{bar.index}}</text>
-              <line :x1="bar.index * currentBarWidth" y1=75 :x2="bar.index * currentBarWidth" y2=225></line>
+              <text :x="bar.index * barWidth - 5" y="55">{{bar.index}}</text>
+              <line :x1="bar.index * barWidth" y1=75 :x2="bar.index * barWidth" y2=225></line>
             </svg>
 
 
               {{/* ex.) note: "B", string: 2 */}}
               <div class="horizontal-tab-note" v-for="(note, string) in notes">
                 <Note :passed-view-box="viewBox"
-                      :x="bar.index * currentBarWidth + (index + 0.5) * currentNoteWidth"
+                      :x="bar.index * barWidth + (index + 0.5) * currentNoteWidth"
                       :y="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"
-                      :r="consts['NOTE_RADIUS']"
+                      :r="noteRadius"
                       :pitch="note"
                       :nth="parseInt(string, 10)"
                       :capo="capo"
@@ -123,7 +123,6 @@
           WIDTH: 1200, // 画面幅に合わせたい
           STRING_INTERVAL: 30,
           STRING_OFFSET: 45,
-          BAR_WIDTH: this.beats * 42,
           NOTE_RADIUS: 15,
         },
         currentBarIndex: 1,
@@ -132,15 +131,27 @@
     },
     computed: {
       /**
-       * 現在の小節番号に従ってviewBoxの位置を変更する
+       * 現在の小節番号・ズーム度合いに従ってviewBoxの位置を変更する
        * @returns {string}
        */
       viewBox: function () {
         return `${this.currentBarIndex * this.currentNoteWidth * this.beats - 20} 0 1200 300`;
       },
 
-      currentBarWidth: function () {
+      /**
+       * 現在のズーム度合いに従って小節幅を返す
+       * @returns {number}
+       */
+      barWidth: function () {
         return this.currentNoteWidth * this.beats;
+      },
+
+      /**
+       * 現在のズーム度合いに従ってノートの半径を返す
+       * @returns {number}
+       */
+      noteRadius: function () {
+        return this.currentNoteWidth / 3;
       }
     },
   }

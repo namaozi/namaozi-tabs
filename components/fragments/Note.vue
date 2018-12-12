@@ -4,7 +4,10 @@
             :cy="y"
             :r="r">
     </circle>
-    <text class="tab-digit" :x="x - 7" :y="y + 7">{{fret}}</text>
+    <text class="tab-digit" fill="midnightblue"
+          :x="x + 1 - (r / 2)"
+          :y="y + (r / 2)"
+          :font-size="r * 1.4" >{{fret}}</text>
   </svg>
 </template>
 
@@ -160,9 +163,4 @@
     fill: #5e5f83;
     stroke: #0b012e;
   }
-  .tab-digit{
-    fill: midnightblue;
-    font-size: 1.5rem;
-  }
-
 </style>
