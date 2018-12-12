@@ -1,5 +1,51 @@
 <template>
   <div>
+    {{/* 演奏情報 */}}
+    <div class="horizontal-tab-controller">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">tuning:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input is-normal" type="text" v-model="tuning">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">capo:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="number" v-model="capo">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">beats:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="number" v-model="beats">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{/* 譜面スクロール用slider */}}
+    <vue-slider id="horizontal-slider" ref="slider"
+                v-model="currentBarIndex"
+                :min="1"
+                :max="this.scoreArray.length"
+                :style="'{display: inline-block}'" />
 
     <div id="horizontal-tab">
       {{/* 弦 */}}
@@ -8,11 +54,6 @@
         <line x1="0" :x2="consts['BAR_WIDTH'] * scoreArray.length + 1"
               :y1="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"
               :y2="string * consts['STRING_INTERVAL'] + consts['STRING_OFFSET']"></line>
-      </svg>
-
-      {{/* カポ, チューニング */}}
-      <svg class="horizontal-tab-song-info" :viewBox="viewBox">
-        <text x="10" y="10">tuning: {{tuning}}, capo: {{capo}}</text>
       </svg>
 
       {{/* ここがメインの譜面 */}}
@@ -46,7 +87,6 @@
           </div>
         </div>
       </div>
-      <vue-slider id="horizontal-slider" ref="slider" v-model="currentBarIndex"></vue-slider>
     </div>
   </div>
 </template>
@@ -75,7 +115,6 @@
           WIDTH: 1200, // 画面幅に合わせたい
           STRING_INTERVAL: 30,
           STRING_OFFSET: 45,
-          JUDGE_LINE_OFFSET: 70,
           BAR_WIDTH: 210,
           NOTE_WIDTH: 210 / this.beats,
           NOTE_RADIUS: 15,
@@ -89,7 +128,7 @@
        * @returns {string}
        */
       viewBox: function () {
-        return `${this.currentBarIndex * this.consts['BAR_WIDTH']} 0 1200 300`;
+        return `${this.currentBarIndex * this.consts['BAR_WIDTH'] - 20} 0 1200 300`;
       }
     },
   }
@@ -123,12 +162,6 @@
   .horizontal-tab-bar-line text {
     stroke: none;
     fill: royalblue;
-    font-size: 1.2rem;
-  }
-
-  .horizontal-tab-song-info {
-    stroke: none;
-    fill: darkblue;
     font-size: 1.2rem;
   }
 </style>

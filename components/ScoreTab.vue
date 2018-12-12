@@ -1,10 +1,22 @@
 <template>
   <div class="score-tab-container">
+
     <h1 class="has-text-centered">{{song['title']}}</h1>
-    <textarea class="textarea is-small" v-model="song['score']"></textarea>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">score:</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <textarea class="textarea is-small" v-model="song['score']"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <HorizontalTab :score-array="scoreArray" :beats="song['beats']" :capo="song['capo']"
                    :position="song['position']" :tuning="song['tuning']" />
-    <!--<VerticalTab :score-array="scoreArray" />-->
   </div>
 </template>
 
