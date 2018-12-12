@@ -14,7 +14,8 @@
     "@nuxtjs/bulma": "^1.2.0",
     "@nuxtjs/font-awesome": "^1.0.3",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-slider-component": "^2.8.2"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
