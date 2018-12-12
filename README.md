@@ -1,6 +1,6 @@
-# tab-app-sample
+# namaozi-tabs
 
-> An app of displaying my TABs
+A namaozi's TAB stockroom & editor & viewer.
 
 ## Build Setup
 
@@ -14,9 +14,6 @@ $ yarn run dev
 # build for production and launch server
 $ yarn run build
 $ yarn start
-
-# generate static project
-$ yarn run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+This repository is powered by [Nuxt.js](https://nuxtjs.org).
