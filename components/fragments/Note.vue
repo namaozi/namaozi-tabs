@@ -5,9 +5,9 @@
             :r="r">
     </circle>
     <text class="tab-digit" fill="midnightblue"
-          :x="x + 1 - (r / 2)"
-          :y="y + (r / 2)"
-          :font-size="r * 1.4" >{{fret}}</text>
+          :x="textPositionX"
+          :y="textPositionY"
+          :font-size="fontSize" >{{fret}}</text>
   </svg>
 </template>
 
@@ -56,6 +56,18 @@
       }
     },
     computed: {
+      /**
+       * propsから大きさや位置を計算するやつら
+       */
+      textPositionX: function () {
+        return this.x + 1 - (this.r / 2);
+      },
+      textPositionY: function () {
+        return this.y + (this.r / 2);
+      },
+      fontSize: function () {
+        return this.r * 1.4;
+      },
       /**
        * 何フレットを押さえるかを返す
        * なおrelative記法で書くのでcapoを考慮する意味はない
