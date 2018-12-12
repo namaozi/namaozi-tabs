@@ -1,7 +1,7 @@
 <template>
-  <div class="container content is-large">
+  <div class="tab-list-container content is-large">
     <h1 class="title">
-      namaozi's TABs
+      TAB Lists
     </h1>
     <ul class="tab-list">
       <li>
@@ -12,6 +12,9 @@
 </template>
 
 <style scoped>
+  .tab-list-container {
+    margin-top: 100px; /* ださいね */
+  }
   .tab-list {
     color: lightskyblue;
   }

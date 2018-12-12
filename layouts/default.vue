@@ -1,11 +1,14 @@
 <template>
-  <div>
-    <nav class="navbar">
-
+  <div class="container">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="https://pbs.twimg.com/profile_images/982051518315556864/OduEm0ty_bigger.jpg" alt="namaozi">
+          <span class="has-text-weight-bold">namaozi's TABs</span>
+        </a>
+      </div>
     </nav>
-    <div class="container">
-      <nuxt />
-    </div>
+    <nuxt />
   </div>
 </template>
 
