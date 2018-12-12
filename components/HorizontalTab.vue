@@ -21,8 +21,9 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="number" v-model.number="capo">
+              <input class="input" type="number" v-model.number="capo" readonly>
             </div>
+            <p class="help has-text-grey-light">※カポ機能は実装中です</p>
           </div>
         </div>
       </div>
@@ -79,7 +80,6 @@
               <text :x="bar.index * barWidth - 5" y="55">{{bar.index}}</text>
               <line :x1="bar.index * barWidth" y1=75 :x2="bar.index * barWidth" y2=225></line>
             </svg>
-
 
               {{/* ex.) note: "B", string: 2 */}}
               <div class="horizontal-tab-note" v-for="(note, string) in notes">

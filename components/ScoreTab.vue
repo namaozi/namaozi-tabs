@@ -8,7 +8,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <textarea class="textarea is-small" v-model="song['score']"></textarea>
+            <textarea class="textarea" v-model="song['score']"></textarea>
           </div>
         </div>
       </div>
