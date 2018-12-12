@@ -1,7 +1,6 @@
 <template>
   <div class="score-tab-container">
-
-    <h1 class="has-text-centered">{{song['title']}}</h1>
+    <h1 class="is-size-1 has-text-weight-light has-text-centered">{{song['title']}}</h1>
     <div class="field is-horizontal">
       <div class="field-label is-normal">
         <label class="label">score:</label>

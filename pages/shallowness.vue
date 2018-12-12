@@ -1,6 +1,9 @@
 <template>
-  <div class="content is-large">
+  <div class="content">
     <ScoreTab :song="this.song" />
+    <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">タイトル: shallowness / namaozi<br>演奏者: namaozi<br>コメント: その昔作った、流れるようなハイテンポでの8分の5 + 4分の5拍子の曲。かなりのお気に入り！<a href="https://t.co/Bgx1pxwclW">https://t.co/Bgx1pxwclW</a> <a href="https://twitter.com/hashtag/namaoziguitar?src=hash&amp;ref_src=twsrc%5Etfw">#namaoziguitar</a><a href="https://twitter.com/hashtag/acoustic_tone?src=hash&amp;ref_src=twsrc%5Etfw">#acoustic_tone</a> <a href="https://twitter.com/PlayAcoGuitar?ref_src=twsrc%5Etfw">@PlayAcoGuitar</a> <a href="https://t.co/HDxVVyylag">pic.twitter.com/HDxVVyylag</a></p>&mdash; なまおじ (@namaozi) <a href="https://twitter.com/namaozi/status/1051020296575045632?ref_src=twsrc%5Etfw">2018年10月13日</a></blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <h6>この譜面でまだ序盤1分くらいまでしか到達しません／(^o^)＼</h6>
   </div>
 </template>
 

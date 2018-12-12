@@ -140,17 +140,15 @@
     position: relative;
   }
 
+  .horizontal-tab-controller {
+    margin: 10px 0;
+  }
   /* bulma標準でサポートしていない */
   .input-range[type="range"] {
     background-color: #eaeaea;
     height: 2px;
     width: 100%;
     border-radius: 6px;
-  }
-
-  /* DIRTY HACK :-1: */
-  .control {
-    margin-top: 10px;
   }
 
   .horizontal-tab-string {
