@@ -39,17 +39,28 @@
     },
     computed: {
       scoreArray: function () {
-        return this.parse(this.song.score);
+        return this.song.score ? this.parse(this.song.score) : [];
       }
     },
     methods: {
       /**
        * スコアをパースして表示させやすくオブジェクトにする
        * @param rawScore
-       * @returns {{hoge: string}}
+       * @returns
+       * [
+       *  {
+       *    index: 1(小節番号),
+       *    notes: [
+       *      {"$string_number": "$note", ...}
+       *    ],
+       *  },
+       *  ...
+       * ]
        */
       parse(rawScore) {
-        const rawBars = rawScore.split('\n').map(raw => raw.slice(1, -1).split('|')).flat();
+        // HACK: 最後にflat()したいが、TypeErrorになってしまうのでArrayで逃げる
+        const rawBarsTmp = rawScore.split('\n').map(raw => raw.slice(1, -1).split('|'));
+        const rawBars = Array.prototype.concat.apply([], rawBarsTmp);
         const bars = rawBars.map((rawBar, index) => {
           let bar = {index: index + 1};
           const notes = rawBar.split(',')
